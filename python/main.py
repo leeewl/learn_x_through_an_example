@@ -4,7 +4,6 @@ from lib.car import Car
 # 60万公里强制报废
 MAX_MILEAGE = 600_000
 
-
 # 函数用def开头
 def show_class():
     """该函数展示类如何使用"""
@@ -49,6 +48,7 @@ def show_list_slice_tuple_dict_set():
     # 列表 增
     friend_list.append('ivo')
     friend_list.insert(0, 'joe')
+
     # 列表 删
     del friend_list[-1]
     no_friend = friend_list.pop()
@@ -92,7 +92,6 @@ def show_list_slice_tuple_dict_set():
     friend_list_backup = friend_list[:]
     print(friend_list_backup)
 
-
     """
     元祖
     """
@@ -104,17 +103,84 @@ def show_list_slice_tuple_dict_set():
 
     """
     字典
+    花括号
     就是键值对
-    值可以是数，字符串，列表，字典
+    任何python对象都可以当字典的值，比如数，字符串，列表，字典
     """
+    student_score = {
+        'anny': {'English': 60, 'Math': 90},
+        'bob': {'English': 70, 'Math': 80}
+    }
 
+    # 字典 查
+    # 有两种方式,[]和get()
+    # []的方式，找不到会Trackback
+    print(student_score['anny'])
+    # get()方式可以指定默认值
+    print(student_score.get('somebody', 'no student'))
+    # get()没有默认值，错误时返回None
+    print(student_score.get('someguy'))
+    # 遍历键值对
+    for key, value in student_score.items():
+        print(f"\nKey: {key}")
+        print(f"Value: {value}")
 
+    # 遍历键值
+    print("\n")
+    for key in student_score.keys():
+        print(key.title())
+    # .key()创建了一个列表,因为是列表，所以可以用上面排序的方法
+    if 'tom' not in student_score.keys():
+        print("no")
+    else:
+        print("yes")
 
+    # 遍历值,如果是字符串，数字，可以用set()去重
+    print("\n")
+    for value in student_score.values():
+        print(value)
 
+    # 字典 增
+    student_score['jerry'] = {'English': 84}
+    print(student_score)
 
+    # 字典 删
+    del student_score['jerry']
+    print(student_score)
 
+    # 字典 改
+    student_score['anny']['English'] = 100
+    print(student_score)
+
+    # 集合
+    # 集合用花括号,逗号分隔
+    # 集合中每个元素是独一无二的，下面两个python只会保留一个
+    languages = {'python', 'ruby', 'python', 'c'}
+    print(languages)
+
+def run_func(id = "1"):
+    """
+    函数举例
+    一个带默认值的函数
+    """
+    if id == "1":
+        show_class()
+    elif id == "2":
+        show_list_slice_tuple_dict_set()
+    else:
+        print("error input\n")
 
 
 if __name__ == '__main__':
-    show_class()
-    show_list_slice_tuple_dict_set()
+    # 让用户输入
+    prompt = "\n what you want ? please input the number:"
+    prompt += "\nEnter 'quit' to end the program"
+    prompt += "\n1. show class"
+    prompt += "\n2. show list slice tuple dict set\n"
+
+    user_input =""
+    while user_input != 'quit':
+        user_input = input(prompt)
+        run_func(user_input)
+    else:
+        print("bye!\n")
