@@ -15,12 +15,21 @@ def show_class():
     # 尽量用小写的变量名，相邻单词之间用下划线
     my_car_1 = Car('Audi', "A6", 2010)
     _my_car_2 = Car('audi', 'a4', 2020)
-    my_car_1.get_base_info()
+    base_info = my_car_1.get_base_info()
+    print(f"Car info : {base_info}")
+    # 直接修改car的属性
+    my_car_1.mileage = 10
+    my_car_1.get_mileage()
+    # 通过方法修改car的属性
     # 数字很大何以用下划线分隔，只是为了阅读清晰，内部使用跟没有下划线一样
     # 下面是浮点数
     my_car_1.update_mileage(1_444_111.01)
-    my_car_1.get_mileage()
-
+    mileage = my_car_1.get_mileage()
+    print(f"mileage : {mileage}\n")
+    # 通过方法递增car的属性
+    my_car_1.increment_mileage(10)
+    mileage = my_car_1.get_mileage()
+    print(f"mileage : {mileage}\n")
 
 def show_list_slice_tuple_dict_set():
     """
