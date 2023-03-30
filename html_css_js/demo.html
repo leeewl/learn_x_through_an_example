@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--DOCTYPE渲染模式，不使用一般进入混杂模式，使用也不一定进入标准模式，比如文件开头是注释-->
+<!--<html></html>是根元素-->
+<html>
+    <!--head定义文档的头部-->
+    <head>
+        <title>这是网页标题</title>
+    </head>
+    <!---->
+    <body>
+        <!--div和span都可以作为其它元素的容器-->
+        <!--div独占一行，下面加了css-->
+        <div style="background-color: red;">
+            <h1>一级标题</h1>
+            <h6>六级标题</h6>
+            <h7>最小是六级标题，这个七级标题就是文本了</h7>
+        </div>
+        <p>文本标签
+            <!--span一行可以有多个-->
+            直接<span style="background-color: aqua;">换行</span>不起<span style="background-color: blueviolet;">作用</span>，但是会多一个空格,br才是换行<br>
+            标签b是<b>加粗</b><br>
+            标签i是<i>斜体</i><br>
+            标签u是<u>下划线</u>
+        </p>
+    
+        <!--img标签插入图片，height和width属性设置图片大小-->
+        <img src="./html_img.jpg" width="1000px">
+        <!--a标签是超链接，http和https不可省略，必带href属性，可选target="_blank"在新标签页打开-->
+        <a href="https://www.baidu.com" target="_blank">百度</a>
+
+        <!--有序列表-->
+        <ol>
+            <!--list item-->
+            <li>第一项</li>
+            <li>第二项</li>
+        </ol>
+        <!--无序列表-->
+        <ul>
+            <li>第一项</li>
+            <li>第二项</li>
+        </ul>
+        <!--表格 border是边框，可选，任意元素可以加上class-->
+        <table border="1" class="data-table">
+            <!--头部可以不写-->
+            <thead>
+                <!--table row-->
+                <tr>
+                    <!--table data-->
+                    <td>head 11</td>
+                    <td>head 12</td>
+                    <td>head 13</td>
+                </tr>
+                <tr>
+                    <td>head 21</td>
+                    <td>head 22</td>
+                    <td>head 23</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>body 11</td>
+                    <td>body 12</td>
+                    <td>body 13</td>
+                </tr>
+                <tr>
+                    <td>body 21</td>
+                    <td>body 22</td>
+                    <td>body 23</td>
+                </tr>
+                <tr>
+                    <td>body 31</td>
+                    <td>body 32</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
