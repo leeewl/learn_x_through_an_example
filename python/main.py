@@ -1,4 +1,5 @@
 from lib.car import Car
+import os
 
 # 常量类似于变量，只包含字母，数字，下划线，但是建议字母只用大写字母
 # 60万公里强制报废
@@ -21,7 +22,7 @@ def show_class():
     my_car_1.mileage = 10
     my_car_1.get_mileage()
     # 通过方法修改car的属性
-    # 数字很大何以用下划线分隔，只是为了阅读清晰，内部使用跟没有下划线一样
+    # 数字很大可以用下划线分隔，只是为了阅读清晰，内部使用跟没有下划线一样
     # 下面是浮点数
     my_car_1.update_mileage(1_444_111.01)
     mileage = my_car_1.get_mileage()
@@ -40,6 +41,42 @@ def show_list_slice_tuple_dict_set():
     字典花括号，可修改
     """
     friend_list = ['anny', 'david', 'bob', 'lucy', 'tony']
+
+    file_name = "friend_list.txt"
+
+    # 可能引发错误的代码放在try..except里，try代码成功执行时才需要执行的代码放在else里。
+    # r是读取模式，如果不存在文件，报错
+    try:
+        # with在不再需要访问文件时将其关闭
+        with open(file_name, 'r') as fl:
+            contents = fl.read()
+    except FileNotFoundError:
+        print(f"Sorry, the file {file_name} does not exist.")
+    else:
+        print(contents)
+
+    # w是写入模式，读取时会清空文件
+    with open(file_name, 'w') as fl:
+        for name in friend_list:
+            fl.write(name + "\n")
+
+    # a是附加模式，不会清空文件内容
+    with open(file_name, 'a') as fl:
+        fl.write("jack")
+
+    try:
+        fl = open(file_name, 'r')
+        lines = fl.readlines()
+    except FileNotFoundError:
+        print(f"Sorry, the file {file_name} does not exist.")
+    else:
+        for line in lines:
+            print(line.rstrip())
+        # 不使用with，需要手动关闭
+        fl.close()
+
+    # 删除文件
+    os.remove(file_name)
 
     """
     列表
